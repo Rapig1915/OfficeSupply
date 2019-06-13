@@ -34,8 +34,9 @@
           </td>  
           <td>
               @Html.DisplayFor(modelItem => item.Name)
-          </td><td>
-              @Html.DisplayFor(modelItem => item.Variety)
+          </td><td style="background-color:
+    @item.Variety
+            ">
           </td>
           <td>
               @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |

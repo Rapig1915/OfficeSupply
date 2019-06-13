@@ -35,10 +35,10 @@ namespace OfficeSupply.Migrations
                 );
 
             context.Items.AddOrUpdate(
-                new Item { Id = 1, CategoryId = 1, Name = "A4", Variety = "Print-use" },
-                new Item { Id = 2, CategoryId = 1, Name = "A5", Variety = "Resume" },
-                new Item { Id = 3, CategoryId = 2, Name = "Majik", Variety = "Office-use" },
-                new Item { Id = 4, CategoryId = 2, Name = "GelPen", Variety = "Student-use" }
+                new Item { Id = 1, CategoryId = 1, Name = "A4", Variety = "#4169E1" },
+                new Item { Id = 2, CategoryId = 1, Name = "A5", Variety = "#8B4513" },
+                new Item { Id = 3, CategoryId = 2, Name = "Majik", Variety = "#F4A460" },
+                new Item { Id = 4, CategoryId = 2, Name = "GelPen", Variety = "#D8BFD8" }
                 );
 
             context.Vendors.AddOrUpdate(

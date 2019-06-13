@@ -1,0 +1,35 @@
+﻿<nav class="navbar-default navbar-static-side" role="navigation">
+    <div class="sidebar-collapse">
+        <ul class="nav" id="side-menu">
+            <li class="nav-header">
+                <div class="dropdown profile-element">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <span class="clear">
+                            <span class="block m-t-xs">
+                                <strong class="font-bold">Juan Mata</strong>
+                            </span> <span class="text-muted text-xs block">Office Secretary</span>
+                        </span>
+                    </a>
+                </div>
+                <div class="logo-element">
+                    IN+
+                </div>
+            </li>
+            <li class="@Html.IsSelected(controller: "Category")">
+                <a href="@Url.Action("Index", "Category")"><i class="fa fa-tag"></i> <span class="nav-label">Categories</span> </a>
+            </li>
+            <li class="@Html.IsSelected(controller: "Item")">
+                <a href="@Url.Action("Index", "Item")"><i class="fa fa-list"></i> <span class="nav-label">Items</span> </a>
+            </li>
+            <li class="@Html.IsSelected(controller: "Vendor")">
+                <a href="@Url.Action("Index", "Vendor")"><i class="fa fa-user"></i> <span class="nav-label">Vendors</span> </a>
+            </li>
+            <li class="@Html.IsSelected(controller: "VendorSupplyItem")">
+                <a href="@Url.Action("Index", "VendorSupplyItem")"><i class="fa fa-table"></i> <span class="nav-label">Vendor-Item</span> </a>
+            </li>
+            <li class="@Html.IsSelected(controller: "Inventory")">
+                <a href="@Url.Action("Index", "Inventory")"><i class="fa fa-opencart"></i> <span class="nav-label">Inventories</span> </a>
+            </li>
+        </ul>
+    </div>
+</nav>

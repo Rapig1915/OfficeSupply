@@ -1,58 +1,53 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Office Supply Application</title>
-    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Office Supply</title>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+    <!-- Add local styles, mostly for plugins css file -->
+    @if (IsSectionDefined("Styles"))
+    {@RenderSection("Styles", required: false)}
+
+    <!-- Add jQuery Style direct - used for jQGrid plugin -->
+    <link href="@Url.Content("~/Scripts/plugins/jquery-ui/jquery-ui.min.css")" rel="stylesheet" type="text/css" />
+    <!-- Primary Inspinia style -->
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/font-awesome/css")
+
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>
-                        @Html.ActionLink("Categories", "Index", "Category", null, new { @class = "navbar-brand" })
-                    </li>
-                    <li>
-                        @Html.ActionLink("Items", "Index", "Item", null, new { @class = "navbar-brand" })
-                    </li>
-                    <li>
-                        @Html.ActionLink("Vendors", "Index", "Vendor", null, new { @class = "navbar-brand" })
-                    </li>
-                    <li>
-                        @Html.ActionLink("Items-Vendors", "Index", "VendorSupplyItem", null, new { @class = "navbar-brand" })
-                    </li>
-                    <li>
-                        @Html.ActionLink("Inventory", "Index", "Inventory", null, new { @class = "navbar-brand" })
-                    </li>
-                </ul>
-            </div>
+    <!-- Skin configuration box -->
+    <!-- @Html.Partial("_SkinConfig") -->
+    <!-- Wrapper-->
+    <!-- PageClass give you ability to specify custom style for specific view based on action -->
+    <div id="wrapper" class="@Html.PageClass()">
+        <!-- Navigation -->
+        @Html.Partial("_Navigation")
+        <!-- Page wraper -->
+        <div id="page-wrapper" class="gray-bg @ViewBag.SpecialClass">
+            <!-- Top Navbar -->
+            @Html.Partial("_TopNavbar")
+            <!-- Main view  -->
+            @RenderBody()
+            <!-- Footer -->
+            @Html.Partial("_Footer")
         </div>
+        <!-- End page wrapper-->
+        <!-- Right Sidebar -->
+        @Html.Partial("_RightSidebar")
     </div>
-
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Office Supply Application</p>
-        </footer>
-    </div>
-    <script src="~/Scripts/jquery-2.1.1.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            console.log("hello! this is document ready!");
-        })
-    </script>
+    <!-- End wrapper-->
+    <!-- Section for main scripts render -->
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/plugins/slimScroll")
+    @Scripts.Render("~/bundles/inspinia")
+    <!-- Skin config script - only for demo purpose-->
+    @Scripts.Render("~/bundles/skinConfig")
+    <!-- Handler for local scripts -->
+    @RenderSection("scripts", required: false)
 </body>
 </html>

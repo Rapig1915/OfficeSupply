@@ -23,6 +23,9 @@
           <th>
               @Html.DisplayNameFor(model => model.Variety)
           </th>
+          <th>
+              @Html.DisplayNameFor(model => model.ItemImage)
+          </th>
           <th></th>
       </tr>
 
@@ -31,12 +34,15 @@
       <tr>
           <td>
               @Html.DisplayFor(modelItem => item.Category.Name)
-          </td>  
+          </td>
           <td>
               @Html.DisplayFor(modelItem => item.Name)
-          </td><td style="background-color:
+          </td>
+          <td style="background-color:
     @item.Variety
-            ">
+            "></td>
+          <td>
+              <img style="max-height:200px; object-fit : contain" src="~/Images/@Html.DisplayFor(modelItem => item.ItemImage)" />
           </td>
           <td>
               @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |

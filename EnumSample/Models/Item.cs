@@ -31,5 +31,12 @@ namespace OfficeSupply.Models
         /// </summary>
         [Required]
         public string Variety { get; set; }
+
+        /// <summary>
+        /// Image FileName saved on server
+        /// </summary>
+        public string ItemImage { get; set; }
+
+        public virtual string PrevItemImage { get; set; }
     }
 }

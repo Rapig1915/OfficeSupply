@@ -57,11 +57,18 @@ namespace OfficeSupply.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include= "Id,CategoryId,Name,Variety")] Item item)
+        public ActionResult Create([Bind(Include= "Id,CategoryId,Name,Variety")] Item item, HttpPostedFileBase ItemImage)
         {
             if (ModelState.IsValid)
             {
                 item.Category = db.Categories.Find(item.CategoryId);
+
+                if(ItemImage != null)
+                {
+                    string newFileName = Helpers.Helper.RandomString() + ".jpg";
+                    ItemImage.SaveAs(HttpContext.Server.MapPath("~/Images/") + newFileName);
+                    item.ItemImage = newFileName;
+                }
 
                 db.Items.Add(item);
                 db.SaveChanges();
@@ -100,11 +107,24 @@ namespace OfficeSupply.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include= "Id,CategoryId,Name,Variety")] Item item)
+        public ActionResult Edit([Bind(Include= "Id,CategoryId,Name,Variety,PrevItemImage")] Item item, HttpPostedFileBase ItemImage)
         {
             if (ModelState.IsValid)
             {
                 item.Category = db.Categories.Find(item.CategoryId);
+
+                // Save Image from file input
+                if (ItemImage != null)
+                {
+                    // delete previous image for current item
+                    if (item.PrevItemImage != null && item.PrevItemImage != "")
+                        if(System.IO.File.Exists(HttpContext.Server.MapPath("~/Images/") + item.PrevItemImage))
+                            System.IO.File.Delete(HttpContext.Server.MapPath("~/Images/") + item.PrevItemImage);
+
+                    string newFileName = Helpers.Helper.RandomString() + ".jpg";
+                    ItemImage.SaveAs(HttpContext.Server.MapPath("~/Images/") + newFileName);
+                    item.ItemImage = newFileName;
+                }
 
                 db.Entry(item).State = EntityState.Modified;
                 db.SaveChanges();
@@ -134,6 +154,11 @@ namespace OfficeSupply.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Item item = db.Items.Find(id);
+
+            if (item.ItemImage != null && item.ItemImage != "")
+                if (System.IO.File.Exists(HttpContext.Server.MapPath("~/Images/") + item.ItemImage))
+                    System.IO.File.Delete(HttpContext.Server.MapPath("~/Images/") + item.ItemImage);
+
             db.Items.Remove(item);
             db.SaveChanges();
             return RedirectToAction("Index");

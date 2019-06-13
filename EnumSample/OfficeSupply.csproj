@@ -141,6 +141,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\Helper.cs" />
     <Compile Include="Migrations\201906131542197_DataAnnotations.cs" />
     <Compile Include="Migrations\201906131542197_DataAnnotations.Designer.cs">
       <DependentUpon>201906131542197_DataAnnotations.cs</DependentUpon>
@@ -161,9 +162,20 @@
     <Compile Include="Migrations\201906131857015_FourthMigration.Designer.cs">
       <DependentUpon>201906131857015_FourthMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201906132011359_FifthMigration.cs" />
+    <Compile Include="Migrations\201906132011359_FifthMigration.Designer.cs">
+      <DependentUpon>201906132011359_FifthMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906132041083_SixthMigration.cs" />
+    <Compile Include="Migrations\201906132041083_SixthMigration.Designer.cs">
+      <DependentUpon>201906132041083_SixthMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906132045487_SeventhMigration.cs" />
+    <Compile Include="Migrations\201906132045487_SeventhMigration.Designer.cs">
+      <DependentUpon>201906132045487_SeventhMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\InventoryLog.cs" />
-    <Compile Include="Models\ItemImage.cs" />
     <Compile Include="Models\InventoryStock.cs" />
     <Compile Include="Models\Inventory.cs" />
     <Compile Include="Models\VendorSupplyItem.cs" />
@@ -216,6 +228,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Images\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201906131542197_DataAnnotations.resx">
@@ -232,6 +245,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201906131857015_FourthMigration.resx">
       <DependentUpon>201906131857015_FourthMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906132011359_FifthMigration.resx">
+      <DependentUpon>201906132011359_FifthMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906132041083_SixthMigration.resx">
+      <DependentUpon>201906132041083_SixthMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906132045487_SeventhMigration.resx">
+      <DependentUpon>201906132045487_SeventhMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

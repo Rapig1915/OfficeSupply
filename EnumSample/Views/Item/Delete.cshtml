@@ -31,6 +31,12 @@
             ">
             @Html.DisplayFor(model => model.Variety)
         </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ItemImage)
+        </dt>
+        <dd>
+            <img style="object-fit : contain" src="~/Images/@Html.DisplayFor(model => model.ItemImage)" />
+        </dd>
     </dl>
 
     @using (Html.BeginForm()) {

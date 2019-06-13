@@ -19,9 +19,11 @@ namespace OfficeSupply.Models
         {
         }
 
+        /// <summary>
+        /// Migration for tables
+        /// </summary>
         public System.Data.Entity.DbSet<OfficeSupply.Models.Category> Categories { get; set; }
         public System.Data.Entity.DbSet<OfficeSupply.Models.Item> Items { get; set; }
-        public System.Data.Entity.DbSet<OfficeSupply.Models.ItemImage> ItemImages { get; set; }
         public System.Data.Entity.DbSet<OfficeSupply.Models.Vendor> Vendors { get; set; }
         public System.Data.Entity.DbSet<OfficeSupply.Models.VendorSupplyItem> VendorSupplyItems { get; set; }
         public System.Data.Entity.DbSet<OfficeSupply.Models.Inventory> Inventories { get; set; }

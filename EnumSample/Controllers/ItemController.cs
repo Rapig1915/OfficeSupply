@@ -17,14 +17,14 @@ namespace OfficeSupply.Controllers
     {
         private MyDataContext db = new MyDataContext();
 
-        // GET: /Home/
+        // GET: /Item/
         public ActionResult Index()
         {
             ViewBag.Categories = db.Categories.ToList();
             return View(db.Items.ToList());
         }
 
-        // GET: /Home/Create
+        // GET: /Item/Create
         public ActionResult Create()
         {
             ViewBag.Categories = new SelectList( db.Categories.ToList().Select(
@@ -37,7 +37,7 @@ namespace OfficeSupply.Controllers
             return View();
         }
 
-        // GET: /Home/Details/5
+        // GET: /Item/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -52,7 +52,7 @@ namespace OfficeSupply.Controllers
             return View(item);
         }
 
-        // POST: /Home/Create
+        // POST: /Item/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -71,7 +71,7 @@ namespace OfficeSupply.Controllers
             return View(item);
         }
 
-        // GET: /Home/Edit/5
+        // GET: /Item/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -95,7 +95,7 @@ namespace OfficeSupply.Controllers
             return View(item);
         }
 
-        // POST: /Home/Edit/5
+        // POST: /Item/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -113,7 +113,7 @@ namespace OfficeSupply.Controllers
             return View(item);
         }
 
-        // GET: /Home/Delete/5
+        // GET: /Item/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -128,7 +128,7 @@ namespace OfficeSupply.Controllers
             return View(item);
         }
 
-        // POST: /Home/Delete/5
+        // POST: /Item/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

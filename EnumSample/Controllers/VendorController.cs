@@ -17,19 +17,19 @@ namespace OfficeSupply.Controllers
     {
         private MyDataContext db = new MyDataContext();
 
-        // GET: /Home/
+        // GET: /Vendor/
         public ActionResult Index()
         {
             return View(db.Vendors.ToList());
         }
 
-        // GET: /Home/Create
+        // GET: /Vendor/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // GET: /Home/Details/5
+        // GET: /Vendor/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -44,7 +44,7 @@ namespace OfficeSupply.Controllers
             return View(vendor);
         }
 
-        // POST: /Home/Create
+        // POST: /Vendor/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -61,7 +61,7 @@ namespace OfficeSupply.Controllers
             return View(vendor);
         }
 
-        // GET: /Home/Edit/5
+        // GET: /Vendor/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -76,7 +76,7 @@ namespace OfficeSupply.Controllers
             return View(vendor);
         }
 
-        // POST: /Home/Edit/5
+        // POST: /Vendor/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -92,7 +92,7 @@ namespace OfficeSupply.Controllers
             return View(vendor);
         }
 
-        // GET: /Home/Delete/5
+        // GET: /Vendor/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -107,7 +107,7 @@ namespace OfficeSupply.Controllers
             return View(vendor);
         }
 
-        // POST: /Home/Delete/5
+        // POST: /Vendor/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

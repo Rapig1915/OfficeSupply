@@ -17,7 +17,7 @@ namespace OfficeSupply.Controllers
     {
         private MyDataContext db = new MyDataContext();
 
-        // GET: /Home/
+        // GET: /VendorSupplyItem/
         public ActionResult Index()
         {
             ViewBag.Items = db.Items.ToList();
@@ -25,7 +25,7 @@ namespace OfficeSupply.Controllers
             return View(db.VendorSupplyItems.ToList());
         }
 
-        // GET: /Home/Create
+        // GET: /VendorSupplyItem/Create
         public ActionResult Create()
         {
             ViewBag.Items = new SelectList( db.Items.ToList().Select(
@@ -47,7 +47,7 @@ namespace OfficeSupply.Controllers
             return View();
         }
 
-        // GET: /Home/Details/5
+        // GET: /VendorSupplyItem/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -62,7 +62,7 @@ namespace OfficeSupply.Controllers
             return View(item);
         }
 
-        // POST: /Home/Create
+        // POST: /VendorSupplyItem/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -113,7 +113,7 @@ namespace OfficeSupply.Controllers
             return db.VendorSupplyItems.Where(x => (x.ItemId == ItemId) && (x.VendorId == VendorId) && (x.Id != Id)).Count() > 0;
         }
 
-        // GET: /Home/Edit/5
+        // GET: /VendorSupplyItem/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -145,7 +145,7 @@ namespace OfficeSupply.Controllers
             return View(item);
         }
 
-        // POST: /Home/Edit/5
+        // POST: /VendorSupplyItem/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -187,7 +187,7 @@ namespace OfficeSupply.Controllers
             return View(item);
         }
 
-        // GET: /Home/Delete/5
+        // GET: /VendorSupplyItem/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -202,7 +202,7 @@ namespace OfficeSupply.Controllers
             return View(item);
         }
 
-        // POST: /Home/Delete/5
+        // POST: /VendorSupplyItem/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

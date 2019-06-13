@@ -1,0 +1,53 @@
+﻿@model OfficeSupply.Models.InventoryLog
+@{
+    ViewBag.Title = "Manage Stocks";
+}
+<h2>
+    @if (ViewBag.InOut)
+    {
+    <p>Receive Items</p>
+    }
+    else
+    {
+    <p>Release Items</p>
+    }
+</h2>
+
+@using (Html.BeginForm("SubmitStocks", "Inventory"))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.Hidden("InOut", ViewBag.InOut ? "1" : "0")
+    @Html.Hidden("InventoryId", (String)ViewBag._InventoryId)
+
+    <div class="form-horizontal">
+        <h4>Inventory</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        <div class="form-group">
+            @Html.LabelFor(model => model.ItemId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.ItemId, (SelectList)ViewBag.Items, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ItemId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Count, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Count)
+                @Html.ValidationMessageFor(model => model.Count)
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+<script src="~/Scripts/jquery-2.1.1.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
